@@ -1,5 +1,5 @@
 :root {
-  --background: #ffffff;
+  --background: #FAFAF8;
   --foreground: #171717;
 }
 
@@ -46,4 +46,37 @@ header {
 
 header > img {
   width: 50px;
+}
+
+#txtIngredient {
+  width: 399px;
+  height: 38px;
+  padding-top: 9px;
+  padding-right: 13px;
+  padding-bottom: 9px;
+  padding-left: 13px;
+  border-radius: 6px;
+  border-width: 1px;
+  background: #FFFFFF;
+  border: 1px solid #D1D5DB;
+  box-shadow: 0px 1px 2px 0px #0000000D;
+}
+
+main {
+  padding: 70px 100px;
+  display: flex;
+  justify-content: center;
+}
+
+#btnAddIngredient {
+  width: 183px;
+  height: 38px;
+  padding-top: 9px;
+  padding-right: 17px;
+  padding-bottom: 9px;
+  padding-left: 17px;
+  border-radius: 6px;
+  background-color: #141413;
+  box-shadow: 0px 1px 2px 0px #0000000D;
+  margin-left: 20px;
 }

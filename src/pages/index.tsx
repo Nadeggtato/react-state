@@ -1,14 +1,11 @@
-import { Inter } from "next/font/google";
 import Header from "@/components/Header";
-
-const inter = Inter({
-  subsets: ["latin"],
-});
+import Main from "@/components/Main";
 
 export default function Home() {
   return (
-    <div className={inter.className}>
+    <div>
       <Header/>
+      <Main/>
     </div>
   );
 }
