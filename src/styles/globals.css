@@ -40,3 +40,29 @@ a {
     color-scheme: dark;
   }
 }
+
+main {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main > .title {
+  text-align: center;
+}
+
+main > .value {
+  background-color: white;
+  border: none;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #262626;
+  font-size: 2rem;
+  font-weight: bold;
+  cursor: pointer;
+}
