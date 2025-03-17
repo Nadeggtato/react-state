@@ -48,6 +48,11 @@ header > img {
   width: 50px;
 }
 
+main {
+  max-width: 720px;
+  margin: auto;
+}
+
 #txtIngredient {
   width: 399px;
   height: 38px;
@@ -60,10 +65,11 @@ header > img {
   background: #FFFFFF;
   border: 1px solid #D1D5DB;
   box-shadow: 0px 1px 2px 0px #0000000D;
+  color: black;
 }
 
-main {
-  padding: 70px 100px;
+div#inputDiv {
+  padding: 70px 40px;
   display: flex;
   justify-content: center;
 }
@@ -79,4 +85,22 @@ main {
   background-color: #141413;
   box-shadow: 0px 1px 2px 0px #0000000D;
   margin-left: 20px;
+}
+
+#ingredientListDiv {
+  margin: auto;
+  max-width: 640px;
+  padding: 0 20px;
+}
+
+#ingredientList {
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+#ingredientList > li {
+  font-size: 18px;
+  line-height: 18px;
+  color: #475467;
+  margin-bottom: 15px;
 }
