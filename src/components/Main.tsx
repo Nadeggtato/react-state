@@ -18,7 +18,7 @@ export function IngredientsList(props: IngredientsListProps)
         </ul>
       </div>
 
-      <div id="ingredientsReadyDiv">
+      {props.ingredients.length >= 3 && <div id="ingredientsReadyDiv">
         <div>
           <p className={inter500.className}>Ready for a recipe?</p>
           <p>Generate a recipe from your list of ingredients</p>
@@ -26,7 +26,7 @@ export function IngredientsList(props: IngredientsListProps)
         <div>
           <button>Get a recipe</button>
         </div>
-      </div>
+      </div>}
     </>
   )
 }
