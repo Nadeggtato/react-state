@@ -112,7 +112,7 @@ div#inputDiv {
   max-width: 600px;
   padding: 42px 28px;
   border-radius: 8px;
-  gap: 40px;
+  gap: 64px;
   margin-top: 40px;
 }
 
@@ -126,8 +126,8 @@ div#inputDiv {
 
 #ingredientsReadyDiv > div:nth-child(2) {
   display: flex;
-  justify-content: center;
-  align-items: end;
+  justify-content: end;
+  align-items: center;
 }
 
 button {
