@@ -1,3 +1,4 @@
 export default interface IngredientsListProps {
-  ingredients: Array<string>
+  ingredients: Array<string>,
+  onShowRecipe: () => void
 }
