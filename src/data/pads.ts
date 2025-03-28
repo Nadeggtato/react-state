@@ -1,4 +1,4 @@
-export default pads [
+export default [
   {
     id: 1,
     color: "#F18D8B",
