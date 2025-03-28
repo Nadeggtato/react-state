@@ -7,8 +7,16 @@ export default function Home() {
   const [buttonPads, setButtonPads] = useState<Array<Pad>>(pads)
 
   const buttonElements = buttonPads.map(function(pad) {
-    return <PadButtons key={pad.id} pad={pad}/>
+    return <PadButtons key={pad.id} pad={pad} onToggle={toggle}/>
   })
+
+  function toggle(id: number) {
+    const updatedButtonPads = buttonPads.map((buttonPad: Pad) => {
+      return buttonPad.id === id ? { ...buttonPad, on: !buttonPad.on } : buttonPad
+    })
+
+    setButtonPads(updatedButtonPads)
+  }
 
   return (
     <main>
