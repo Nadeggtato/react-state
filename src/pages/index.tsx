@@ -6,6 +6,10 @@ import { useState } from "react";
 export default function Home() {
   const [buttonPads, setButtonPads] = useState<Array<Pad>>(pads)
 
+  function handleToggle() {
+    setButtonPads((pad) => {...pad, on: !pad.on})
+  }
+
   const buttonElements = buttonPads.map(function(pad) {
     return <PadButtons key={pad.id} pad={pad}/>
   })
