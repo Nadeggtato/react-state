@@ -25,7 +25,7 @@ export default function Main() {
       });
 
       const data = await response.json();
-      console.log(data.recipe);
+      setRecipe(data.recipe);
       setIsRecipeVisible(true);
     } catch (error) {
       console.error("Failed to fetch recipe:", error);
@@ -49,7 +49,7 @@ export default function Main() {
       </div>
 
       {ingredients.length > 0 && <IngredientsList ingredients={ingredients} onShowRecipe={showRecipe}/>}
-      {isRecipeVisible && <Recipe/>}
+      {isRecipeVisible && <Recipe recipe={recipe}/>}
     </main>
   )
 }
