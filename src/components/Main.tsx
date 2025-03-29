@@ -12,6 +12,12 @@ export default function Main() {
   const [recipe, setRecipe] = useState<string>('')
 
   function addIngredient(formData: FormData) {
+    const newIngredient = formData.get('ingredient') as string
+
+    if (newIngredient.trim() === '') {
+      return
+    }
+
     setIngredients(prevIngredients => [...prevIngredients, formData.get('ingredient') as string])
   }
 
@@ -34,6 +40,13 @@ export default function Main() {
       });
 
       const data = await response.json();
+
+      if (!data.recipe) {
+        alert('Failed to fetch recipe.')
+
+        return
+      }
+
       setRecipe(data.recipe);
       setIsRecipeVisible(true);
     } catch (error) {
