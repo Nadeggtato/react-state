@@ -8,13 +8,28 @@ const inter400 = Inter({ weight: "400", subsets: ['latin'] })
 export default function Main() {
   const [ingredients, setIngredients] = useState<Array<string>>([])
   let [isRecipeVisible, setIsRecipeVisible] = useState<boolean>(false)
+  const [recipe, setRecipe] = useState<string>('')
 
   function addIngredient(formData: FormData) {
     setIngredients(prevIngredients => [...prevIngredients, formData.get('ingredient') as string])
   }
 
-  function showRecipe() {
-    setIsRecipeVisible(isRecipeVisible = true)
+  async function showRecipe() {
+    try {
+      const response = await fetch("/api/hugging-face", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ingredients }),
+      });
+
+      const data = await response.json();
+      console.log(data.recipe);
+      setIsRecipeVisible(true);
+    } catch (error) {
+      console.error("Failed to fetch recipe:", error);
+    }
   }
 
   return (
