@@ -1,4 +1,5 @@
 export default interface IngredientsListProps {
   ingredients: Array<string>,
-  onShowRecipe: () => void
+  onShowRecipe: () => void,
+  isRecipeLoading: boolean
 }

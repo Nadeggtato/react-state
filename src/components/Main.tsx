@@ -7,7 +7,8 @@ const inter400 = Inter({ weight: "400", subsets: ['latin'] })
 
 export default function Main() {
   const [ingredients, setIngredients] = useState<Array<string>>([])
-  let [isRecipeVisible, setIsRecipeVisible] = useState<boolean>(false)
+  const [isRecipeVisible, setIsRecipeVisible] = useState<boolean>(false)
+  const [isRecipeFetching, setIsRecipeFetching] = useState<boolean>(false)
   const [recipe, setRecipe] = useState<string>('')
 
   function addIngredient(formData: FormData) {
@@ -15,6 +16,14 @@ export default function Main() {
   }
 
   async function showRecipe() {
+    if (isRecipeFetching) {
+      alert('Please wait, request already ongoing.')
+
+      return
+    }
+
+    setIsRecipeFetching(true)
+
     try {
       const response = await fetch("/api/hugging-face", {
         method: "POST",
@@ -29,6 +38,8 @@ export default function Main() {
       setIsRecipeVisible(true);
     } catch (error) {
       console.error("Failed to fetch recipe:", error);
+    } finally {
+      setIsRecipeFetching(false)
     }
   }
 
@@ -48,7 +59,13 @@ export default function Main() {
         </form>
       </div>
 
-      {ingredients.length > 0 && <IngredientsList ingredients={ingredients} onShowRecipe={showRecipe}/>}
+      {
+        ingredients.length > 0 && <IngredientsList
+          ingredients={ingredients}
+          onShowRecipe={showRecipe}
+          isRecipeLoading={isRecipeFetching}
+        />
+      }
       {isRecipeVisible && <Recipe recipe={recipe}/>}
     </main>
   )

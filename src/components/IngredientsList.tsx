@@ -22,7 +22,9 @@ export default function IngredientsList(props: IngredientsListProps)
           <p>Generate a recipe from your list of ingredients</p>
         </div>
         <div>
-          <button onClick={props.onShowRecipe}>Get a recipe</button>
+          <button onClick={props.onShowRecipe} className={ props.isRecipeLoading ? 'loading' : '' }>
+            Get a recipe
+          </button>
         </div>
       </div>}
     </>

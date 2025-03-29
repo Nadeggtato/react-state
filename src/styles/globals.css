@@ -136,10 +136,15 @@ button {
 }
 
 #ingredientsReadyDiv > div:nth-child(2) > button {
+  cursor: pointer;
   background-color: #D17557;
   color: #FAFAF8;
   border-radius: 6px;
   padding: 10px 30px;
+}
+
+#ingredientsReadyDiv > div:nth-child(2) > button.loading {
+  cursor: wait;
 }
 
 section {
@@ -157,4 +162,8 @@ section {
 
 .suggested-recipe-container ul li, .suggested-recipe-container ol li {
   margin-bottom: 8px;
+}
+
+#chefClaudeHeader {
+  margin-bottom: 20px;
 }

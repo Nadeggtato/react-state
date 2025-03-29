@@ -5,7 +5,7 @@ const SYSTEM_PROMPT = `You are an assistant that receives a list of ingredients 
   they could make with some or all of those ingredients. You don't need to use every ingredient they mention in your
   recipe. The recipe can include additional ingredients they didn't mention, but try not to include too many extra
   ingredients. Do not greet like an AI, and format your response in HTML without the html and body tag to make it
-  easier to render to a web page`
+  easier to render to a web page. Make sure to separate the ingredients section from the instructions.`
 
 const hf = new HfInference(process.env.NEXT_PUBLIC_HUGGING_FACE_KEY)
 
