@@ -16,7 +16,7 @@ export default function IngredientsList(props: IngredientsListProps)
         </ul>
       </div>
 
-      {props.ingredients.length >= 4 && <div id="ingredientsReadyDiv">
+      {props.ingredients.length >= 4 && <div id="ingredientsReadyDiv" ref={props.generateIngredientRef}>
         <div>
           <p className={inter500.className}>Ready for a recipe?</p>
           <p>Generate a recipe from your list of ingredients</p>

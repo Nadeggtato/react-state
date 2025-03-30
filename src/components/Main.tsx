@@ -1,7 +1,7 @@
 import IngredientsList from "./IngredientsList"
 import Recipe from "./Recipe"
 import { Inter } from "next/font/google"
-import { useState } from "react"
+import { RefObject, useEffect, useRef, useState } from "react"
 
 const inter400 = Inter({ weight: "400", subsets: ['latin'] })
 
@@ -10,6 +10,13 @@ export default function Main() {
   const [isRecipeVisible, setIsRecipeVisible] = useState<boolean>(false)
   const [isRecipeFetching, setIsRecipeFetching] = useState<boolean>(false)
   const [recipe, setRecipe] = useState<string>('')
+  const recipeSection = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (recipe !== '' && recipeSection !== null) {
+      recipeSection.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [recipe])
 
   function addIngredient(formData: FormData) {
     const newIngredient = formData.get('ingredient') as string
@@ -74,6 +81,7 @@ export default function Main() {
 
       {
         ingredients.length > 0 && <IngredientsList
+          generateIngredientRef={recipeSection as RefObject<HTMLDivElement>}
           ingredients={ingredients}
           onShowRecipe={showRecipe}
           isRecipeLoading={isRecipeFetching}
